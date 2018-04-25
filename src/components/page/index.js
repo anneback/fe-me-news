@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
-import { Grid, Row, Col } from '@nordnet/grid';
+import { Grid, Row, Col } from "@nordnet/grid";
 
 export const Page = ({ children }) => (
   <Grid>
     <Row>
       <Col xs={12} sm={8} md={6} lg={4}>
-        { children }
+        {children}
       </Col>
     </Row>
   </Grid>
-)
+);

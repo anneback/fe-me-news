@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 export const Menu = ({ links }) => (
-    <ul className="unstyle menu">
-        {links.map(item => (
-					<li key={item.url} className="unstyle menu__item">
-							<a className="footerItem" href={item.url}>{item.text}</a>
-					</li>))}
-    </ul>
-)
+  <ul className="unstyle menu">
+    {links.map(item => (
+      <li key={item.url} className="unstyle menu__item">
+        <a className="footerItem" href={item.url}>
+          {item.text}
+        </a>
+      </li>
+    ))}
+  </ul>
+);
