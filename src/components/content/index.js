@@ -1,3 +1,3 @@
 import React from "react";
 
-export const Content = () => <div className="example">CONTENT here....</div>;
+export const Content = () => <div>CONTENT here....</div>;
