@@ -1,7 +1,12 @@
-.header {
-    display: 'flex',
+.unstyle {
+    display: inline;
+    margin: 0;
+    padding: 0;
 }
 
-.headerItem {
-    padding: 0px 10px 0px 10px
+.menu { 
+
+}
+.menu__item {
+    margin-right: 10px;
 }

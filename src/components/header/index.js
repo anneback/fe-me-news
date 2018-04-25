@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Menu } from '../menu';
-import './styles.css';
 
 const mainMenu = [
   { text: 'New',    url: 'https://news.ycombinator.com/newest' },

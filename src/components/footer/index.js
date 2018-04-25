@@ -12,7 +12,7 @@ const additionalMenu = [
 ];
 
 export const Footer = () => (
-  <div>
+  <div className="footer">
     <Menu links={additionalMenu} />
   </div>
 )
