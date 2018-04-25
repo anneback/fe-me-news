@@ -1,6 +1,9 @@
 .footer {
-    margin-top: 10px;
-    text-align: center;
-    background: peachpuff;
-    padding: 15px;
+  margin-top: 10px;
+  text-align: center;
+  background: peachpuff;
+  padding: 15px;
+
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
