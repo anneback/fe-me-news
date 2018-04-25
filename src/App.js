@@ -4,13 +4,13 @@ import { Header, Page, Content, Footer } from './components';
 class App extends Component {
   render() {
     return (
-      <div>
       <Page>
-        <Header />
-        <Content />
+        <div>
+          <Header />
+          <Content />
+        </div>
         <Footer />
       </Page>
-      </div>
     );
   }
 }
