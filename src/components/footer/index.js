@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Menu } from '../menu';
 import './styles.css';
 
 const additionalMenu = [
@@ -7,11 +8,11 @@ const additionalMenu = [
   { text: 'Documentation',    url: 'https://reactjs.org/docs/' },
   { text: 'PropTypes',        url: 'https://reactjs.org/docs/typechecking-with-proptypes.html' },
   { text: 'Create react app', url: 'https://github.com/facebook/create-react-app/' },
-  { text: 'github',           url: 'https://github.com/user/repo' },
+  { text: 'github',           url: 'https://github.com/anneback/fe-me-news' },
 ];
 
-export const Footer = ({ children }) => (
-  <div className="example">
-    { children }
+export const Footer = () => (
+  <div>
+    <Menu links={additionalMenu} />
   </div>
 )

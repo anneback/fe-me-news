@@ -4,6 +4,6 @@ import './styles.css';
 
 export const Content = () => (
   <div className="example">
-    NEWSSSSSSS
+    CONTENT here....
   </div>
 )

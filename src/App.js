@@ -6,12 +6,10 @@ class App extends Component {
     return (
       <div>
       <Page>
-      <Header />
-
-        HEJ
-      <Footer />
+        <Header />
+        <Content />
+        <Footer />
       </Page>
-     
       </div>
     );
   }
