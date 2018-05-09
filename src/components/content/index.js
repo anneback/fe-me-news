@@ -1,3 +1,3 @@
-import React from "react";
+import React from 'react';
 
-export const Content = () => <div>CONTENT here....</div>;
+export const Content = ({ children }) => <div>{children}</div>;

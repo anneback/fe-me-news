@@ -1,16 +1,39 @@
 import React, { Component } from 'react';
-import { Header, Page, Content, Footer } from './components';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import {
+  Header,
+  Page,
+  Content,
+  Footer,
+  NewsItem,
+  NewsItemList,
+  PageNewsList
+} from './components';
+import { api } from './utils';
+
+//<Route path="/item/:itemId" component={NewsItem} />
 
 class App extends Component {
   render() {
     return (
-      <Page>
-        <div>
-          <Header />
-          <Content />
-        </div>
-        <Footer />
-      </Page>
+      <BrowserRouter>
+        <Page className="page">
+          <div>
+            <Header className="header" />
+            <Content>
+              <Switch>
+                <Route exact path="/" component={PageNewsList} />
+                <Route
+                  path="/item/:itemId"
+                  render={({ match }) => <NewsItem id={match.params.itemId} />}
+                />
+              </Switch>
+            </Content>
+          </div>
+          <Footer />
+        </Page>
+      </BrowserRouter>
     );
   }
 }
