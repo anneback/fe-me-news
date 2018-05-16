@@ -11,6 +11,7 @@ export class PageNewsList extends Component {
     super(props);
 
     this.state = { ids: undefined };
+
     this.fetchItems = () => {
       api
         .getItems()
@@ -27,14 +28,12 @@ export class PageNewsList extends Component {
     this.fetchItems();
   }
 
-  /*   shouldComponentUpdate(nextProps, nextState) {
-    console.log('this.props.ids', this.props.ids);
+  shouldComponentUpdate(nextProps, nextState) {
     return !isArraysEqual(this.state.ids, nextState.ids);
-    // TODO: access current this.state and this.props
-    // use isArraysEqual to check list of ids for `/`
-  } */
+  }
 
   render() {
+    console.log('RENDER');
     const { ids } = this.state;
     if (!ids) {
       return <div>Loading...</div>;
