@@ -7,10 +7,8 @@ import {
   Content,
   Footer,
   NewsItem,
-  NewsItemList,
   PageNewsList
 } from './components';
-import { api } from './utils';
 
 //<Route path="/item/:itemId" component={NewsItem} />
 
