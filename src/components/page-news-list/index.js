@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
-
 import { NewsItemList } from '../';
 
 import { api } from '../../utils';
 
-const isArraysEqual = (arr1, arr2) => arr1.toString() === arr2.toString();
+const isArraysEqual = (arr1 = [], arr2 = []) =>
+  arr1.toString() === arr2.toString();
 
 export class PageNewsList extends Component {
   constructor(props) {
     super(props);
 
     this.state = { ids: undefined };
+    this.fetchItems = () => {
+      api
+        .getItems()
+        .then(ids => {
+          this.setState({ ids });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
   }
 
   componentDidMount() {
-    api
-      .getItems()
-      .then(ids => {
-        this.setState({ ids });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.fetchItems();
   }
 
-  /* shouldComponentUpdate(nextProps, nextState) {
+  /*   shouldComponentUpdate(nextProps, nextState) {
+    console.log('this.props.ids', this.props.ids);
+    return !isArraysEqual(this.state.ids, nextState.ids);
     // TODO: access current this.state and this.props
     // use isArraysEqual to check list of ids for `/`
   } */
@@ -34,6 +39,11 @@ export class PageNewsList extends Component {
     if (!ids) {
       return <div>Loading...</div>;
     }
-    return <div>{<NewsItemList ids={ids} />}</div>;
+    return (
+      <div>
+        <button onClick={e => this.fetchItems()}>REFRESH</button>
+        <NewsItemList ids={ids} />
+      </div>
+    );
   }
 }
