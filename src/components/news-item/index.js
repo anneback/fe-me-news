@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { api } from '../../utils/api';
+import { api } from '../../utils';
 import './styles.css';
 
 export const NewsItem = ({ id }) => {
   const item = api.getItem(id);
+  console.log('ITEM', item);
   const timeInMs = item.time * 1000;
   return (
     <div className="root">
