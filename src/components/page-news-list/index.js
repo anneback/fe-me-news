@@ -14,7 +14,7 @@ export class PageNewsList extends Component {
 
     this.fetchItems = () => {
       api
-        .getItems()
+        .getItemsIds()
         .then(ids => {
           this.setState({ ids });
         })
