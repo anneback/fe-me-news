@@ -26,8 +26,6 @@ export const Header = props => (
   </div>
 );
 
-const mapStateToProps = state => {};
-
 const mapDispatchToProps = {
   toggleTheme: actions.toggleTheme
 };
