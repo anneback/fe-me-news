@@ -1,3 +1,4 @@
+import * as actions from '../actions';
 export * from './page';
 export * from './header';
 export * from './content';
