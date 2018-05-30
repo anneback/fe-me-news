@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+//import { toggleTheme } from './actions';
 
 import { Menu } from '../menu';
 import './styles.css';
