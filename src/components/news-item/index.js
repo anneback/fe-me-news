@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { api } from '../../utils';
 import './styles.css';
@@ -46,3 +47,5 @@ export class NewsItem extends Component {
     );
   }
 }
+
+export default connect(null, null)(NewsItem);
