@@ -1,6 +1,5 @@
-import * as actions from '../actions';
-export * from './page';
-export * from './header';
+export { default as Page } from './page';
+export { default as Header } from './header';
 export * from './content';
 export * from './footer';
 export * from './menu';
