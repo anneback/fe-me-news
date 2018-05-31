@@ -24,7 +24,7 @@ export class PageNewsList extends Component {
     }
     return (
       <div>
-        <button onClick={e => this.fetchItems()}>REFRESH</button>
+        <button onClick={e => this.props.fetchItemsIds()}>REFRESH</button>
         <NewsItemList ids={ids} />
       </div>
     );
