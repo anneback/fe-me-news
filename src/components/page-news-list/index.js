@@ -3,7 +3,6 @@ import { NewsItemList } from '../';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
-import { api } from '../../utils';
 
 const isArraysEqual = (arr1 = [], arr2 = []) =>
   arr1.toString() === arr2.toString();
