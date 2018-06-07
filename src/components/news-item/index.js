@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { distanceInWordsToNow } from 'date-fns';
 
 import * as actions from '../../actions';
 import './styles.css';
@@ -15,7 +16,8 @@ export class NewsItem extends Component {
     if (!item) {
       return <div>Loading...</div>;
     }
-    const timeInMs = item.time / 1000;
+    const timeInMs = item.time * 1000;
+    const timeInWords = distanceInWordsToNow(new Date(timeInMs));
     return (
       <div className="root">
         <span className="title">
@@ -23,8 +25,7 @@ export class NewsItem extends Component {
         </span>
         <span className="ingress">
           {item.score} points by&nbsp;
-          <Link to={`/item/${item.id}`}>{item.by}</Link> {timeInMs} seconds ago
-          |&nbsp;
+          <Link to={`/item/${item.id}`}>{item.by}</Link> {timeInWords} |&nbsp;
           <Link to={`/item/${item.id}`}>
             {item.descendants === 0
               ? ' discuss'
@@ -46,4 +47,7 @@ const mapDispatchToProps = {
   fetchItem: actions.fetchItem
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsItem);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewsItem);
