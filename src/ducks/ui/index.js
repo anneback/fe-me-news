@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // NAMESPACE definition
-export const ns = 'ui-duck';
+export const ns = 'ui';
 
 //ROOT for ui-duck substate, state is state which it is used
 const root = state => state[ns];

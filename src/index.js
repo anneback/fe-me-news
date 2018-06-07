@@ -5,14 +5,13 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import './index.css';
-import { uiReducer, dataReducer } from './reducers';
+import { dataReducer } from './reducers';
 import * as ducks from './ducks';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const rootReducer = combineReducers({
-  ui: uiReducer,
   data: dataReducer,
   ...ducks.ui.reducer
 });
