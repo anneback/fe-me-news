@@ -1,2 +1,2 @@
 export { default as ui } from './ui';
-export { default as data } from './data/itemsIds';
+export { default as data } from './data';

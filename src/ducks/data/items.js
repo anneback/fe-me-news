@@ -1,8 +1,10 @@
+import { api } from '../../utils';
+
 export const ns = 'items';
 
 export const shape = {};
 
-const defaultState = {};
+export const defaultState = {};
 
 const root = state => (state ? state[ns] : defaultState);
 
@@ -32,6 +34,7 @@ const requestItemFail = (id, err) => ({
   payload: { id, err }
 });
 
+const stringifyErr = err => err.toString();
 const rawReducer = (state = {}, action) => {
   switch (action.type) {
     case types.start:
@@ -76,7 +79,7 @@ export const fetchItem = id => {
   };
 };
 
-export const action = {
+export const actions = {
   requestItemStart,
   requestItemSuccess,
   requestItemFail,

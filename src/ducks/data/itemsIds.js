@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { api } from '../../utils';
 
-const ns = 'itemsIds';
+export const ns = 'itemsIds';
 
-const shape = {};
+export const shape = {};
 
 const defaultState = {
   ids: [],
