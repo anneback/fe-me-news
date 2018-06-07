@@ -39,7 +39,7 @@ export class NewsItem extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    item: ducks.data.selectors.item(state, ownProps.id)
+    item: ducks.data.selectors.items.item(state, ownProps.id)
   };
 };
 

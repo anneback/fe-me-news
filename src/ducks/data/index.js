@@ -4,7 +4,7 @@ import { mergeObjects, augmentSelectors } from '../../utils/ducks';
 import { default as itemsIds } from './itemsIds';
 import { default as items } from './items';
 
-export const ns = 'data-duck';
+export const ns = 'data';
 
 export const shape = mergeObjects([itemsIds.shape, items.shape]);
 export const defaultState = mergeObjects([

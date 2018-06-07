@@ -34,7 +34,10 @@ const firstN = (n, arr) => arr.slice(0, n);
 
 const mapStateToProps = state => {
   return {
-    ids: firstN(ducks.ui.selectors.itemsToShow(), state.data.itemsIds.ids) //  ducks.data.selectors.itemsIds)
+    ids: firstN(
+      ducks.ui.selectors.itemsToShow(state),
+      ducks.data.selectors.itemsIds.ids(state)
+    )
   };
 };
 
