@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { NewsItemList } from '../';
 import { connect } from 'react-redux';
 
-import * as actions from '../../actions';
 import * as ducks from '../../ducks';
 
 const isArraysEqual = (arr1 = [], arr2 = []) =>
@@ -35,12 +34,12 @@ const firstN = (n, arr) => arr.slice(0, n);
 
 const mapStateToProps = state => {
   return {
-    ids: firstN(ducks.ui.selectors.itemsToShow(), state.data.itemsIds.ids)
+    ids: firstN(ducks.ui.selectors.itemsToShow(), state.data.itemsIds.ids) //  ducks.data.selectors.itemsIds)
   };
 };
 
 const mapDispatchToProps = {
-  fetchItemsIds: actions.fetchItemsIds
+  fetchItemsIds: ducks.data.actions.fetchItemsIds
 };
 
 export default connect(

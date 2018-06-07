@@ -15,8 +15,8 @@ export const defaultState = mergeObjects([
 const root = state => (state ? state[ns] : defaultState);
 export const selectors = {
   root,
-  ...augmentSelectors(root, itemsIds.ns, itemsIds.actions),
-  ...augmentSelectors(root, items.ns, items.actions)
+  ...augmentSelectors(root, itemsIds.ns, itemsIds.selectors),
+  ...augmentSelectors(root, items.ns, items.selectors)
 };
 
 export const actions = mergeObjects([itemsIds.actions, items.actions]);

@@ -9,9 +9,9 @@ export const defaultState = {};
 const root = state => (state ? state[ns] : defaultState);
 
 export const selectors = {
-  item: (state, id) => root(state)[id].item || {},
-  isLoading: (state, id) => root(state)[id].isLoading || {},
-  error: (state, id) => root(state)[id].error || {}
+  item: (state, id) => (root(state)[id] || {}).item,
+  isLoading: (state, id) => (root(state)[id] || {}).isLoading,
+  error: (state, id) => (root(state)[id] || {}).error
 };
 
 const types = {

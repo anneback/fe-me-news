@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { api } from '../../utils';
 
 export const ns = 'itemsIds';
