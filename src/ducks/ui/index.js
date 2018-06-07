@@ -51,10 +51,22 @@ export const rawReducer = (state = defaultState, action) => {
     case types.toggleTheme:
       return { ...state, isDarkTheme: !state.isDarkTheme };
     default:
-      state;
+      return state;
   }
 };
 
 export const reducer = {
   [ns]: rawReducer
+};
+
+export default {
+  ns,
+  shape,
+  selectors,
+  types,
+  updateItemsToShow,
+  toggleTheme,
+  actions,
+  rawReducer,
+  reducer
 };
