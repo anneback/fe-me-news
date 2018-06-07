@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import * as actions from '../../actions';
+import * as ducks from '../../ducks';
 
 import { Menu } from '../menu';
 import './styles.css';
@@ -27,7 +27,10 @@ export const Header = props => (
 );
 
 const mapDispatchToProps = {
-  toggleTheme: actions.toggleTheme
+  toggleTheme: ducks.ui.actions.toggleTheme
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Header);
