@@ -13,6 +13,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const rootReducer = combineReducers({
   data: dataReducer,
+  ...ducks.data.reducer,
   ...ducks.ui.reducer
 });
 

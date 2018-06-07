@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 // NAMESPACE definition
 export const ns = 'ui';
 
+const defaultState = {
+  itemsToShow: 10,
+  isDarkTheme: false
+};
+
 //ROOT for ui-duck substate, state is state which it is used
-const root = state => state[ns];
+const root = state => (state ? state[ns] : defaultState);
 
 export const shape = {
   itemsToShow: PropTypes.number.isRequired,
   isDarkTheme: PropTypes.bool.isRequired
-};
-
-const defaultState = {
-  itemsToShow: 10,
-  isDarkTheme: false
 };
 
 export const selectors = {
@@ -23,18 +23,18 @@ export const selectors = {
 };
 
 // action types
-export const types = {
+const types = {
   updateItemsToShow: 'UPDATE_ITEMS_TO_SHOW',
   toggleTheme: 'TOGGLE_THEME'
 };
 
 // ACTIONS
-export const updateItemsToShow = value => ({
+const updateItemsToShow = value => ({
   type: types.updateItemsToShow,
   payload: value
 });
 
-export const toggleTheme = () => ({
+const toggleTheme = () => ({
   type: types.toggleTheme
 });
 
@@ -44,7 +44,7 @@ export const actions = {
 };
 
 // REDUCER
-export const rawReducer = (state = defaultState, action) => {
+const rawReducer = (state = defaultState, action) => {
   switch (action.type) {
     case types.updateItemsToShow:
       return { ...state, itemsToShow: action.payload };
@@ -64,9 +64,6 @@ export default {
   shape,
   selectors,
   types,
-  updateItemsToShow,
-  toggleTheme,
   actions,
-  rawReducer,
   reducer
 };
