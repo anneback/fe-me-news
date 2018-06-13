@@ -1,5 +1,3 @@
-import { api } from '../../utils';
-
 export const ns = 'items';
 
 export const shape = {};
