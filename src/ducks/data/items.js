@@ -12,16 +12,17 @@ export const selectors = {
   error: (state, id) => (root(state)[id] || {}).error
 };
 
-export const types = {
+const types = {
   fetchItem: 'REQUEST_ITEM'
 };
 
-export const fetchItem = id => ({
+const fetchItem = id => ({
   type: types.fetchItem,
   fetch: { url: `/v0/item/${id}.json` },
   params: { id }
 });
-export const actions = {
+
+const actions = {
   fetchItem
 };
 

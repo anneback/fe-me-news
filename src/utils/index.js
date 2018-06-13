@@ -1,5 +1,4 @@
 // src/utils/index.js
-export * from './api';
 export * from './logger';
 export * from './redux-fetch';
 
