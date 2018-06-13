@@ -10,8 +10,6 @@ import {
   PageNewsList
 } from './components';
 
-//<Route path="/item/:itemId" component={NewsItem} />
-
 class App extends Component {
   render() {
     return (
