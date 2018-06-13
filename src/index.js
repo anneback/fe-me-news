@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import './index.css';
-import { dataReducer } from './reducers';
 import * as ducks from './ducks';
 
 import App from './App';
