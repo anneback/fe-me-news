@@ -14,76 +14,47 @@ export const selectors = {
   error: (state, id) => (root(state)[id] || {}).error
 };
 
-const types = {
-  start: 'REQUEST_ITEM_START',
-  success: 'REQUEST_ITEM_SUCCESS',
-  fail: 'REQUEST_ITEM_FAIL'
+export const types = {
+  fetchItem: 'REQUEST_ITEM'
 };
 
-// DATA ITEM
-const requestItemStart = id => ({
-  type: types.start,
-  payload: id
+export const fetchItem = id => ({
+  type: types.fetchItem,
+  fetch: { url: `/v0/item/${id}.json` },
+  params: { id }
 });
-const requestItemSuccess = itemObj => ({
-  type: types.success,
-  payload: itemObj
-});
-const requestItemFail = (id, err) => ({
-  type: types.fail,
-  payload: { id, err }
-});
+export const actions = {
+  fetchItem
+};
 
-const stringifyErr = err => err.toString();
 const rawReducer = (state = {}, action) => {
   switch (action.type) {
-    case types.start:
+    case `${types.fetchItem} / start`:
       return {
         ...state,
-        [action.payload]: { item: {}, isLoading: true, error: null }
+        [action.params.id]: { item: {}, isLoading: true, error: null }
       };
-    case types.success:
+    case `${types.fetchItem} / success`:
       return {
         ...state,
-        [action.payload.id]: {
+        [action.params.id]: {
           item: action.payload,
           isLoading: false,
           error: null
         }
       };
-    case types.fail:
+    case `${types.fetchItem} / fail`:
       return {
         ...state,
-        [action.payload.id]: {
+        [action.params.id]: {
           item: {},
           isLoading: false,
-          error: stringifyErr(action.payload.err)
+          error: action.payload
         }
       };
     default:
       return state;
   }
-};
-
-export const fetchItem = id => {
-  return dispatch => {
-    dispatch(requestItemStart(id));
-    return api
-      .getItem(id)
-      .then(item => {
-        dispatch(requestItemSuccess(item));
-      })
-      .catch(err => {
-        dispatch(requestItemFail(id, err));
-      });
-  };
-};
-
-export const actions = {
-  requestItemStart,
-  requestItemSuccess,
-  requestItemFail,
-  fetchItem
 };
 
 export const reducer = {
